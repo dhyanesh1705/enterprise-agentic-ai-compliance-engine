@@ -10,19 +10,25 @@ def build_graph():
     return None
 
 
+from agents.compliance_auditor import ComplianceAuditor
+
+
 def run_workflow(initial_inputs: dict):
-    """
-    Executes the compliance workflow.
-    """
 
-    # Later:
-    # graph = build_graph()
-    # return graph.invoke(initial_inputs)
+    # Simulated transcript
+    transcript = "This product offers a 100% guarantee."
 
-    # Temporary simulation
+    # Simulated policy list
+    policies = [
+        {"rule": "No absolute guarantees allowed."}
+    ]
+
+    auditor = ComplianceAuditor()
+
+    audit_results = auditor.evaluate(transcript, policies)
+
     return {
         **initial_inputs,
-        "final_status": "PASS",
-        "final_report": "Workflow execution simulated.",
-        "compliance_results": []
+        **audit_results,
+        "final_report": "Compliance evaluation completed."
     }
