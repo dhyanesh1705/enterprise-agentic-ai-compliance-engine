@@ -2,13 +2,24 @@
 LangGraph workflow definition for the compliance engine.
 """
 
-# Temporary placeholder until we move full graph logic
+def build_graph():
+    """
+    Builds and returns the LangGraph workflow.
+    """
+    # Placeholder for future LangGraph state machine
+    return None
+
+
 def run_workflow(initial_inputs: dict):
     """
     Executes the compliance workflow.
     """
-    # This will later call LangGraph app.invoke()
-    # For now we simulate
+
+    # Later:
+    # graph = build_graph()
+    # return graph.invoke(initial_inputs)
+
+    # Temporary simulation
     return {
         **initial_inputs,
         "final_status": "PASS",
