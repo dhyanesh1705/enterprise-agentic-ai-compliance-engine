@@ -21,7 +21,7 @@ from dotenv import load_dotenv
 load_dotenv(override=True)  # override=True means .env values take priority over system variables
 
 # Import the main workflow graph (the "brain" of your compliance system)
-from backend.src.graph.workflow import app
+from orchestration.workflow import run_workflow
 
 # Configure logging - sets up the "flight recorder" for your application
 logging.basicConfig(
@@ -82,7 +82,7 @@ def run_cli_simulation():
         # app.invoke() triggers the LangGraph workflow
         # It passes through: START → Indexer → Auditor → END
         # Returns the final state with all results
-        final_state = app.invoke(initial_inputs)
+        final_state = run_workflow(initial_inputs)
         
         # ========== DISPLAY SECTION: EXECUTION COMPLETE ==========
         print("\n--- 2. WORKFLOW EXECUTION COMPLETE ---")
